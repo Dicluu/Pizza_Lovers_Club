@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Models\Pizza;
+use \App\Models\Ingredient;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,23 +46,23 @@ Route::name('user.')->group(function() {
 
 
 Route::group(['namespace' => $namespace . 'Pizza'], function() {
-    Route::get('/pizzas',  'IndexController')->name('pizza.index');
-    Route::get('/pizzas/create', 'CreateController')->name('pizza.create');
-    Route::get('/pizzas/{pizza}',  'ShowController')->name('pizza.show');
-    Route::get('/pizzas/edit/{pizza}',  'EditController')->name('pizza.edit');
-    Route::patch('/pizzas/{pizza}',  'UpdateController')->name('pizza.update');
-    Route::post('/pizzas/', 'StoreController')->name('pizza.store');
-    Route::delete('/pizzas/{pizza}', 'DestroyController')->name('pizza.destroy');
+    Route::get('/pizzas',  'IndexController')->name('pizza.index')->can('viewAny', Pizza::class);
+    Route::get('/pizzas/create', 'CreateController')->name('pizza.create')->can('create', Pizza::class);
+    Route::get('/pizzas/{pizza}',  'ShowController')->name('pizza.show')->can('view', 'pizza');
+    Route::get('/pizzas/edit/{pizza}',  'EditController')->name('pizza.edit')->can('update', 'pizza');
+    Route::patch('/pizzas/{pizza}',  'UpdateController')->name('pizza.update')->can('update', 'pizza');
+    Route::post('/pizzas/', 'StoreController')->name('pizza.store')->can('create', Pizza::class);
+    Route::delete('/pizzas/{pizza}', 'DestroyController')->name('pizza.destroy')->can('delete', 'pizza');
 });
 
 Route::group(['namespace' => $namespace . 'Ingredient'], function() {
-    Route::get('/ingredients',  'IndexController')->name('ingredient.index');
-    Route::get('/ingredients/create', 'CreateController')->name('ingredient.create');
-    Route::get('/ingredients/{ingredient}',  'ShowController')->name('ingredient.show');
-    Route::get('/ingredients/edit/{ingredient}',  'EditController')->name('ingredient.edit');
-    Route::patch('/ingredients/{ingredient}',  'UpdateController')->name('ingredient.update');
-    Route::post('/ingredients/', 'StoreController')->name('ingredient.store');
-    Route::delete('/ingredients/{ingredient}', 'DestroyController')->name('ingredient.destroy');
+    Route::get('/ingredients',  'IndexController')->name('ingredient.index')->can('viewAny', Ingredient::class);
+    Route::get('/ingredients/create', 'CreateController')->name('ingredient.create')->can('create', Ingredient::class);
+    Route::get('/ingredients/{ingredient}',  'ShowController')->name('ingredient.show')->can('view', 'ingredient');
+    Route::get('/ingredients/edit/{ingredient}',  'EditController')->name('ingredient.edit')->can('update', 'ingredient');
+    Route::patch('/ingredients/{ingredient}',  'UpdateController')->name('ingredient.update')->can('update', 'ingredient');
+    Route::post('/ingredients/', 'StoreController')->name('ingredient.store')->can('create', Ingredient::class);
+    Route::delete('/ingredients/{ingredient}', 'DestroyController')->name('ingredient.destroy')->can('delete', 'ingredient');
 });
 
 

@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Ingredient;
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use App\Models\Pizza;
 
@@ -36,7 +38,7 @@ class DatabaseSeeder extends Seeder
             'weight' => '100',
         ]);
 
-                Ingredient::factory()->create([
+        Ingredient::factory()->create([
             'title' => 'Cucumbers',
             'description' => 'Green, delicious and crisp, best choose',
             'image' => 'cucumbers.png',
@@ -44,7 +46,7 @@ class DatabaseSeeder extends Seeder
             'weight' => '60',
         ]);
 
-                Ingredient::factory()->create([
+        Ingredient::factory()->create([
             'title' => 'Meat',
             'description' => ' 	Just a chicken meat, do eat.',
             'image' => 'meat.jpg',
@@ -52,13 +54,39 @@ class DatabaseSeeder extends Seeder
             'weight' => '120',
         ]);
 
-                Ingredient::factory()->create([
+        Ingredient::factory()->create([
             'title' => 'Cheese',
             'description' => 'Cheese from Netherlands, and stop grinning',
             'image' => 'cheese.jpg',
             'price' => '40',
             'weight' => '70',
         ]);
+
+        Role::factory()->create([
+            'name' => 'user'
+        ]);
+
+        Role::factory()->create([
+            'name' => 'admin'
+        ]);
+
+        $user = User::factory()->create([
+            'name' => 'admin',
+            'email' => 'admin@admin.ru',
+            'password' => 'admin',
+        ]);
+
+        foreach (Role::all() as $role) {
+            $user->roles()->attach($role);
+        }
+
+        $user = User::factory()->create([
+            'name' => 'test_user',
+            'email' => 'test@test.ru',
+            'password' => 'test',
+        ]);
+
+        $user->roles()->attach(1);
 
 
     }

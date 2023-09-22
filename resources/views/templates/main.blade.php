@@ -1,5 +1,8 @@
 <!doctype html>
 <html lang="en">
+<?php
+use App\Models\Pizza;
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -27,20 +30,24 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false">
-                        Management
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('pizza.index') }}">pizzas list</a></li>
-                        <li><a class="dropdown-item" href="{{ route('ingredient.index') }}">ingredients list</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
+                @if(Auth::check())
+                    @if(Auth::user()->can('viewAny', Pizza::class))
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                Management
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('pizza.index') }}">pizzas list</a></li>
+                                <li><a class="dropdown-item" href="{{ route('ingredient.index') }}">ingredients list</a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                            </ul>
                         </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
+                    @endif
+                @endif
                 <li class="nav-item">
                     <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                 </li>

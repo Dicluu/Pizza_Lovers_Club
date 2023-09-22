@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,32 @@ use Illuminate\Support\Facades\Route;
 $namespace = 'App\Http\Controllers\\';
 
 Route::get('/',  $namespace . 'IndexController@index')->name('index');
+
+Route::name('user.')->group(function() {
+    $namespace = 'App\Http\Controllers\User\\';
+    Route::get('/login', function () {
+        if (Auth::check()) {
+            return redirect(route('index'));
+        }
+        return view('login');
+    })->name('login');
+
+    Route::get('/registration', function () {
+        if (Auth::check()) {
+            return redirect(route('index'));
+        }
+        return view('registration');
+    })->name('registration');
+
+    Route::post('/registration', $namespace . 'RegistrationController');
+    Route::post('/login', $namespace . 'LoginController');
+
+    Route::get('/logout', function () {
+        Auth::logout();
+        return redirect(route('index'));
+    })->name('logout');
+});
+
 
 Route::group(['namespace' => $namespace . 'Pizza'], function() {
     Route::get('/pizzas',  'IndexController')->name('pizza.index');
@@ -35,5 +62,7 @@ Route::group(['namespace' => $namespace . 'Ingredient'], function() {
     Route::post('/ingredients/', 'StoreController')->name('ingredient.store');
     Route::delete('/ingredients/{ingredient}', 'DestroyController')->name('ingredient.destroy');
 });
+
+
 
 

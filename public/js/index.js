@@ -1,12 +1,3 @@
-var text = document.getElementById('text'); // Находим текст по иду
-//var text = document.getElementsByClassName('text') // находим текст по названию класса (class) (возвращается массив)
-//var text = document.getElementsByTagName('text') // Находим текст по названию (name) (возвращается массив)
-
-//text.title = "new text"; - обращение к параметру напрямую
-//text.style.color = "red"; - обращение к стилю.
-//text.innerHTML = "new text"; - обращение к значению внутри тега
-
-
 var button = document.getElementById('btn-cart');
 var isAdd = false;
 button.addEventListener("click", click)

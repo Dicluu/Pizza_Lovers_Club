@@ -14,18 +14,20 @@
                 <th scope="col">ingredients</th>
                 <th scope="col">image</th>
                 <th scope="col">price</th>
+                <th scope="col">category</th>
                 <th scope="col">delete</th>
             </tr>
-            @foreach($pizzas as $pizza)
+            @foreach($items as $item)
                 <tr>
-                    <td>{{ $pizza->id }}</td>
-                    <td><a href="{{ route('pizza.show', $pizza->id) }}">{{ $pizza->title }}</a></td>
-                    <td>{{ $pizza->description }}</td>
-                    <td>{{ $pizza->ingredients }}</td>
-                    <td>{{ $pizza->image }}</td>
-                    <td>{{ $pizza->price }}</td>
+                    <td>{{ $item->id }}</td>
+                    <td><a href="{{ route('item.show', $item->id) }}">{{ $item->title }}</a></td>
+                    <td>{{ $item->description }}</td>
+                    <td>{{ $item->ingredients }}</td>
+                    <td>{{ $item->image }}</td>
+                    <td>{{ $item->price }}</td>
+                    <td>{{ $item->category->title }}</td>
                     <td>
-                        <form action="{{ route('pizza.destroy', $pizza->id)  }}" method="POST">
+                        <form action="{{ route('item.destroy', $item->id)  }}" method="POST">
                             @csrf
                             @method('delete')
                         <button type="submit" class="btn btn-primary">delete</button>
@@ -36,7 +38,7 @@
         </table>
 
         <div>
-            <a class="btn btn-success" href="{{route('pizza.create')}}">Create a new pizza</a>
+            <a class="btn btn-success" href="{{route('item.create')}}">Create a new item</a>
         </div>
 
         <div>

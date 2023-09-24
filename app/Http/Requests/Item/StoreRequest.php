@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Pizza;
+namespace App\Http\Requests\Item;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -26,7 +26,8 @@ class StoreRequest extends FormRequest
             'description' => 'string',
             'image' => 'string',
             'ingredients' => '',
-            'price' => 'integer'
+            'price' => 'integer',
+            'category_id' => 'integer'
         ];
     }
 }

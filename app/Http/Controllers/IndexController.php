@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Item;
 use App\Models\Pizza;
 use App\Models\Role;
 use App\Models\User;
@@ -16,7 +17,7 @@ class IndexController extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function index() {
-        $pizzas = Pizza::all();
-        return view('index', compact('pizzas'));
+        $items = Item::all();
+        return view('index', compact('items'));
     }
 }

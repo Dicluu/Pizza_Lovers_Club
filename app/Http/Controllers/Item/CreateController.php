@@ -1,18 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Pizza;
+namespace App\Http\Controllers\Item;
 
-use App\Models\Pizza;
+use App\Models\Category;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
-class EditController extends BaseController
+class CreateController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function __invoke(Pizza $pizza) {
-        return view('pizza/edit', compact('pizza'));
+    public function __invoke() {
+        $categories = Category::all();
+        return view('item/create', compact('categories'));
     }
 }

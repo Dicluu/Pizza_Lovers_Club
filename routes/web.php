@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Item;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -46,14 +47,14 @@ Route::name('user.')->group(function() {
 });
 
 
-Route::group(['namespace' => $namespace . 'Pizza'], function() {
-    Route::get('/pizzas',  'IndexController')->name('pizza.index')->can('viewAny', Pizza::class);
-    Route::get('/pizzas/create', 'CreateController')->name('pizza.create')->can('create', Pizza::class);
-    Route::get('/pizzas/{pizza}',  'ShowController')->name('pizza.show')->can('view', 'pizza');
-    Route::get('/pizzas/edit/{pizza}',  'EditController')->name('pizza.edit')->can('update', 'pizza');
-    Route::patch('/pizzas/{pizza}',  'UpdateController')->name('pizza.update')->can('update', 'pizza');
-    Route::post('/pizzas/', 'StoreController')->name('pizza.store')->can('create', Pizza::class);
-    Route::delete('/pizzas/{pizza}', 'DestroyController')->name('pizza.destroy')->can('delete', 'pizza');
+Route::group(['namespace' => $namespace . 'Item'], function() {
+    Route::get('/items',  'IndexController')->name('item.index')->can('viewAny', Item::class);
+    Route::get('/items/create', 'CreateController')->name('item.create')->can('create', Item::class);
+    Route::get('/items/{item}',  'ShowController')->name('item.show')->can('view', 'item');
+    Route::get('/items/edit/{item}',  'EditController')->name('item.edit')->can('update', 'item');
+    Route::patch('/items/{item}',  'UpdateController')->name('item.update')->can('update', 'item');
+    Route::post('/items/', 'StoreController')->name('item.store')->can('create', Item::class);
+    Route::delete('/items/{item}', 'DestroyController')->name('item.destroy')->can('delete', 'item');
 });
 
 Route::group(['namespace' => $namespace . 'Ingredient'], function() {

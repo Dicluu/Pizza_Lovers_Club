@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Pizza;
+namespace App\Http\Controllers\Item;
 
-use App\Http\Requests\Pizza\StoreRequest;
-use App\Models\Pizza;
+use App\Http\Requests\Item\StoreRequest;
+use App\Models\Item;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -15,7 +15,7 @@ class StoreController extends BaseController
 
     public function __invoke(StoreRequest $request) {
         $data = $request->validated();
-        $pizza = Pizza::Create($data);
-        return redirect()->route('pizza.index');
+        $item = Item::Create($data);
+        return redirect()->route('item.index');
     }
 }

@@ -6,7 +6,7 @@
     </head>
     <div>
         <div class="container mt-5">
-            <form action="{{ route('pizza.store') }}" method="POST">
+            <form action="{{ route('item.store') }}" method="POST">
                 @csrf
 
                 <div class="row mb-3">
@@ -46,9 +46,21 @@
                         @enderror
                     </div>
                 </div>
+                <div class="row mb-3">
+                    <label for="category" class="col-sm-2 col-form-label">category</label>
+                    <div class="col-sm-10">
+                        <select name="category_id" class="form-control" id="category">
+                            @foreach($categories as $category)
+                                <option
+                                    {{ old('category_id') == $category->id ? ' selected' : '' }}
+                                    value="{{$category->id}}">{{ $category->title }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
                 <button type="submit" class="btn btn-primary">create</button>
             </form>
-            <a class="btn btn-primary mt-3" href="{{route('pizza.index')}}">Back</a>
+            <a class="btn btn-primary mt-3" href="{{route('item.index')}}">Back</a>
         </div>
     </div>
 @endsection

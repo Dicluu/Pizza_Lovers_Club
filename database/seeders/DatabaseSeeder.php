@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Cart;
+use App\Models\Category;
 use App\Models\Ingredient;
+use App\Models\Item;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -24,12 +26,18 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        Pizza::factory()->create([
-            'title' => 'cheddar',
+        Category::factory()->create([
+            'title' => 'pizza'
+        ]);
+
+        Item::factory()->create([
+            'title' => 'Cheddar',
             'description' => 'Delicious pizza from Italy, i guess',
             'image' => 'chedder.jpg',
             'price' => '123',
+            'category_id' => 1
         ]);
+
 
         Ingredient::factory()->create([
             'title' => 'Tomatoes',

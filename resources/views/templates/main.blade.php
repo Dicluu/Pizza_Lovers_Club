@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <?php
-use App\Models\Pizza;
+use App\Models\Item;
 ?>
 <head>
     <meta charset="UTF-8">
@@ -31,14 +31,14 @@ use App\Models\Pizza;
                     <a class="nav-link" href="#">Link</a>
                 </li>
                 @if(Auth::check())
-                    @if(Auth::user()->can('viewAny', Pizza::class))
+                    @if(Auth::user()->can('viewAny', Item::class))
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                aria-expanded="false">
                                 Management
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ route('pizza.index') }}">pizzas list</a></li>
+                                <li><a class="dropdown-item" href="{{ route('item.index') }}">items list</a></li>
                                 <li><a class="dropdown-item" href="{{ route('ingredient.index') }}">ingredients list</a>
                                 <li><a class="dropdown-item" href="{{ route('user.index') }}">users list</a>
                                 </li>

@@ -1,10 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
-use App\Models\Cart;
-use App\Models\Pizza;
-use App\Models\Role;
 use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -15,8 +12,8 @@ class IndexController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function index() {
-        $pizzas = Pizza::all();
-        return view('index', compact('pizzas'));
+    public function __invoke() {
+        $users = User::all();
+        return view('user.index', compact('users'));
     }
 }

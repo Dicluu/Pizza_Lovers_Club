@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Models\Pizza;
@@ -63,6 +64,14 @@ Route::group(['namespace' => $namespace . 'Ingredient'], function() {
     Route::patch('/ingredients/{ingredient}',  'UpdateController')->name('ingredient.update')->can('update', 'ingredient');
     Route::post('/ingredients/', 'StoreController')->name('ingredient.store')->can('create', Ingredient::class);
     Route::delete('/ingredients/{ingredient}', 'DestroyController')->name('ingredient.destroy')->can('delete', 'ingredient');
+});
+
+Route::group(['namespace' => $namespace . 'User'], function() {
+    Route::get('/users',  'IndexController')->name('user.index')->can('viewAny', User::class);
+    Route::get('/users/{user}',  'ShowController')->name('user.show')->can('view', 'user');
+    Route::get('/users/edit/{user}',  'EditController')->name('user.edit')->can('update', 'user');
+    Route::patch('/users/{user}',  'UpdateController')->name('user.update')->can('update', 'user');
+    Route::delete('/users/{user}', 'DestroyController')->name('user.destroy')->can('delete', 'user');
 });
 
 

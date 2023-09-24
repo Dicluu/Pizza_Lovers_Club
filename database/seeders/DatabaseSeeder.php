@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Cart;
 use App\Models\Ingredient;
 use App\Models\Role;
 use App\Models\User;
@@ -76,6 +77,13 @@ class DatabaseSeeder extends Seeder
             'password' => 'admin',
         ]);
 
+
+        $cart = Cart::factory()->create([
+            'user_id' => 1
+        ]);
+
+        $user->roles()->attach(1);
+
         foreach (Role::all() as $role) {
             $user->roles()->attach($role);
         }
@@ -86,8 +94,9 @@ class DatabaseSeeder extends Seeder
             'password' => 'test',
         ]);
 
-        $user->roles()->attach(1);
-
+        $cart = Cart::factory()->create([
+            'user_id' => 2
+        ]);
 
     }
 }

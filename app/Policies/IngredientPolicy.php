@@ -4,6 +4,7 @@ namespace App\Policies;
 
 use App\Models\Ingredient;
 use App\Models\User;
+use App\Policies\Utils\Finder;
 use Illuminate\Auth\Access\Response;
 
 class IngredientPolicy
@@ -14,7 +15,7 @@ class IngredientPolicy
     public function viewAny(User $user): bool
     {
         $available = ['admin'];
-        return $this->search($available, $user);
+        return Finder::search($available, $user);
     }
 
     /**
@@ -23,7 +24,7 @@ class IngredientPolicy
     public function view(User $user, Ingredient $ingredient): bool
     {
         $available = ['admin'];
-        return $this->search($available, $user);
+        return Finder::search($available, $user);
     }
 
     /**
@@ -32,7 +33,7 @@ class IngredientPolicy
     public function create(User $user): bool
     {
         $available = ['admin'];
-        return $this->search($available, $user);
+        return Finder::search($available, $user);
     }
 
     /**
@@ -41,7 +42,7 @@ class IngredientPolicy
     public function update(User $user, Ingredient $ingredient): bool
     {
         $available = ['admin'];
-        return $this->search($available, $user);
+        return Finder::search($available, $user);
     }
 
     /**
@@ -50,7 +51,7 @@ class IngredientPolicy
     public function delete(User $user, Ingredient $ingredient): bool
     {
         $available = ['admin'];
-        return $this->search($available, $user);
+        return Finder::search($available, $user);
     }
 
     /**
@@ -59,7 +60,7 @@ class IngredientPolicy
     public function restore(User $user, Ingredient $ingredient): bool
     {
         $available = ['admin'];
-        return $this->search($available, $user);
+        return Finder::search($available, $user);
     }
 
     /**
@@ -68,14 +69,7 @@ class IngredientPolicy
     public function forceDelete(User $user, Ingredient $ingredient): bool
     {
         $available = ['admin'];
-        return $this->search($available, $user);
+        return Finder::search($available, $user);
     }
 
-    private function search(array $available, User $user) {
-        foreach ($available as $role) {
-            $value = $user->roles()->getResults()->pluck('name')->contains($role);
-            if ($value > 0) break;
-        }
-        return $value;
-    }
 }

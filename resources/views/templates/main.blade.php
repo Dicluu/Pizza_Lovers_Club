@@ -40,6 +40,7 @@ use App\Models\Pizza;
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{ route('pizza.index') }}">pizzas list</a></li>
                                 <li><a class="dropdown-item" href="{{ route('ingredient.index') }}">ingredients list</a>
+                                <li><a class="dropdown-item" href="{{ route('user.index') }}">users list</a>
                                 </li>
                                 <li>
                                     <hr class="dropdown-divider">

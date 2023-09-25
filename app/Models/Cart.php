@@ -11,4 +11,8 @@ class Cart extends Model
 
     protected $table = 'carts';
     protected $guarded = [];
+
+    public function orders() {
+        return $this->hasMany(PurchaseOrder::class);
+    }
 }

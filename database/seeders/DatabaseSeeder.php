@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Ingredient;
 use App\Models\Item;
 use App\Models\Role;
+use App\Models\Status;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use App\Models\Pizza;
@@ -29,15 +30,6 @@ class DatabaseSeeder extends Seeder
         Category::factory()->create([
             'title' => 'pizza'
         ]);
-
-        Item::factory()->create([
-            'title' => 'Cheddar',
-            'description' => 'Delicious pizza from Italy, i guess',
-            'image' => 'chedder.jpg',
-            'price' => '123',
-            'category_id' => 1
-        ]);
-
 
         Ingredient::factory()->create([
             'title' => 'Tomatoes',
@@ -70,6 +62,20 @@ class DatabaseSeeder extends Seeder
             'price' => '40',
             'weight' => '70',
         ]);
+
+        $pizza = Item::factory()->create([
+            'title' => 'Cheddar',
+            'description' => 'Delicious pizza from Italy, i guess',
+            'image' => 'chedder.jpg',
+            'price' => '599.99',
+            'category_id' => 1
+        ]);
+
+        $pizza->ingredients()->attach(1);
+        $pizza->ingredients()->attach(2);
+        $pizza->ingredients()->attach(3);
+        $pizza->ingredients()->attach(4);
+
 
         Role::factory()->create([
             'name' => 'user'
@@ -104,6 +110,10 @@ class DatabaseSeeder extends Seeder
 
         $cart = Cart::factory()->create([
             'user_id' => 2
+        ]);
+
+        Status::factory()->create([
+            'title' => 'not paid'
         ]);
 
     }

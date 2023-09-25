@@ -15,7 +15,11 @@
                             <h5 class="card-title">{{ $item->title }}</h5>
                             <p class="card-text"> {{ $item->description }}</p>
                             <!-- <a href="#" class="btn btn-primary">ADD TO CART</a> -->
-                            <button id = "btn-cart" class="btn btn-primary"><i class="bi bi-bag"></i></button>
+                            <form action="{{ route('purchase.store') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="item_id" value="{{ $item->id }}">
+                            <button type="submit" id = "btn-cart" class="btn btn-primary"><i class="bi bi-bag"></i></button>
+                            </form>
                         </div>
                     </div>
                 </div>

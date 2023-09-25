@@ -55,7 +55,7 @@ use App\Models\Item;
             </ul>
             <form class="d-flex" role="search">
                 @if(Auth::check())
-                    <button class="btn me-3 nav-btn"><i class="bi bi-cart4"></i></button>
+                    <a href=" {{ route('cart.index') }}" class="btn me-3 nav-btn"><i class="bi bi-cart4"></i></a>
                     <a href="{{ route('user.logout') }}" class="btn nav-btn"><i class="bi bi-door-closed"></i></a>
                 @else
                     <a href="{{ route('user.login') }}" class="btn me-3">Sign in</a>

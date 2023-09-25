@@ -29,7 +29,11 @@
                     <td>{{ $item->id }}</td>
                     <td><a href="{{ route('item.show', $item->id) }}">{{ $item->title }}</a></td>
                     <td>{{ $item->description }}</td>
-                    <td>{{ $item->ingredients }}</td>
+                    <td>
+                        @foreach($item->ingredients as $ingredient)
+                            <a href="{{ route('ingredient.show', $ingredient->id) }}">{{ $ingredient->title }}</a>
+                        @endforeach
+                    </td>
                     <td>{{ $item->image }}</td>
                     <td>{{ $item->price }}</td>
                     <td>{{ $item->category->title }}</td>

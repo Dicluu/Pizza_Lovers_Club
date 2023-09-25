@@ -11,4 +11,9 @@ class PurchaseItem extends Model
 
     protected $table = 'purchase_items';
     protected $guarded = [];
+
+    public function item() {
+        return $this->BelongsTo(Item::class);
+    }
+
 }

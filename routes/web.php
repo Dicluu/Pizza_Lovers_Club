@@ -75,6 +75,11 @@ Route::group(['namespace' => $namespace . 'User'], function() {
     Route::delete('/users/{user}', 'DestroyController')->name('user.destroy')->can('delete', 'user');
 });
 
+Route::get('/cart', $namespace . 'Cart\\' .'IndexController')->name('cart.index');
+Route::post('/purchase', $namespace . 'PurchaseItem\\' . 'StoreController')->name('purchase.store');
+Route::patch('/purchase', $namespace . 'PurchaseItem\\' . 'UpdateController')->name('purchase.update');
+Route::delete('/purchase/{item}', $namespace . 'PurchaseItem\\' . 'DestroyController')->name('purchase.destroy');
+
 
 
 

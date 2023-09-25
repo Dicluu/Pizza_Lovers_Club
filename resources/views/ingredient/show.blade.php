@@ -10,7 +10,7 @@
         <div>{{ $ingredient->id}}. {{ $ingredient->title }} </div>
         <div>{{ $ingredient->description }}</div>
     </div>
-    <a class="btn btn-success mt-3" href="{{route('ingredient.index')}}">Back</a>
+    <a class="btn btn-success mt-3" href="#" onclick="history.back();">Back</a>
     <a class="btn btn-success mt-3" href="{{route('ingredient.edit', $ingredient->id)}}">Edit</a>
 
 @endsection

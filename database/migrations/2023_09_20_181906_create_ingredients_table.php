@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('image');
-            $table->unsignedBigInteger('price');
+            $table->unsignedFloat('price');
             $table->unsignedBigInteger('weight');
             $table->timestamps();
         });

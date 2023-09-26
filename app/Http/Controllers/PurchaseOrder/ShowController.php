@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Item;
+namespace App\Http\Controllers\PurchaseOrder;
 
 use App\Models\Item;
+use App\Models\PurchaseOrder;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -12,7 +13,7 @@ class ShowController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function __invoke(Item $item) {
-        return view('item.show', compact('item'));
+    public function __invoke() {
+        return view('cart.payment');
     }
 }

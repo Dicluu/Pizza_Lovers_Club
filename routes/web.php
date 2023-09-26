@@ -79,7 +79,8 @@ Route::get('/cart', $namespace . 'Cart\\' .'IndexController')->name('cart.index'
 Route::post('/purchase', $namespace . 'PurchaseItem\\' . 'StoreController')->name('purchase.store');
 Route::patch('/purchase', $namespace . 'PurchaseItem\\' . 'UpdateController')->name('purchase.update');
 Route::delete('/purchase/{item}', $namespace . 'PurchaseItem\\' . 'DestroyController')->name('purchase.destroy');
-
+Route::get('/payment', $namespace . 'PurchaseOrder\\' . 'ShowController')->name('purchase.details');
+Route::post('/payment', $namespace . 'PurchaseOrder\\' . 'StoreController')->name('purchase.payment');
 
 
 

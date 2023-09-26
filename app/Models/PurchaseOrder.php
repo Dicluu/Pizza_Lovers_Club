@@ -20,5 +20,9 @@ class PurchaseOrder extends Model
         return $this->hasMany(PurchaseItem::class);
     }
 
+    public function details() {
+        return $this->hasOne(PurchaseOrderDetails::class);
+    }
+
 
 }

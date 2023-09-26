@@ -39,7 +39,7 @@
             @endforeach
         </div>
         <p>Итого: {{ $amount }}</p>
-        <a class="btn btn-success" href="#">Оплатить</a>
+        <a class="btn btn-success" href="{{ route('purchase.details') }}">Оплатить</a>
     </div>
 
 

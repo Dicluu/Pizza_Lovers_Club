@@ -35,6 +35,13 @@
                     <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
+                <div class="col-lg-2">
+                    <label for="apartment_number" class="col-form-label">Apartment number:</label>
+                    <input type="text" name="apartment_number" class="form-control" id="apartment_number" value=" {{ old('apartment_number') }}">
+                    @error('apartment_number')
+                    <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                </div>
             </div>
             <div class="row">
                 <div class="col-lg-4">

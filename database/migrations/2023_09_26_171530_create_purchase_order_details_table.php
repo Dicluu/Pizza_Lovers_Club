@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string( 'street');
             $table->unsignedBigInteger( 'floor');
             $table->string( 'porch_number')->default('-');
+            $table->unsignedBigInteger( 'apartment_number');
             $table->string( 'payment');
             $table->unsignedBigInteger('purchase_order_id');
             $table->timestamps();

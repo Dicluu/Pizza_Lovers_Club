@@ -8,7 +8,7 @@
         <h3>Order Details</h3>
         <h5>Name: {{ $details->name }}</h5>
         <h5>Phone number: {{ $details->phone_number }}</h5>
-        <h5>Address: {{ $details->city }}, {{ $details->street }}, {{ $details->porch_number }} подъезд, {{ $details->floor }} этаж</h5>
+        <h5>Address: {{ $details->city }}, {{ $details->street }}, {{ $details->porch_number }} подъезд, {{ $details->floor }} этаж, квартира/помещение: {{ $details->apartment_number }}</h5>
         <h5>Payment: {{ $details->payment }}</h5>
         <h5>Comment: {{ $details->comment }}</h5>
         <h5>Contains:

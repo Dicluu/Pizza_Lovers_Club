@@ -31,6 +31,7 @@ class StoreRequest extends FormRequest
             'floor' => 'integer',
             'porch_number' => 'integer',
             'payment' => 'string',
+            'apartment_number' => 'integer'
         ];
     }
 }

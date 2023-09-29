@@ -10,7 +10,7 @@
             <tr>
                 <th scope="col">order</th>
                 <th scope="col">contains</th>
-                <th scope="col">comment</th>
+                <th scope="col"></th>
                 <th scope="col"></th>
             </tr>
             @foreach($tasks as $task)
@@ -21,7 +21,6 @@
                             {{ $item->item->title }} x{{ $item->count }}
                         @endforeach
                     </td>
-                    <td><a href="{{ route('task.list') . '?comment=true&id=' . $task->order->id }}">comment</a></td>
                     <td>
                         <form action="{{ route('task.update', $task->id) }}" method="POST">
                             @csrf
@@ -40,6 +39,7 @@
 
                         </form>
                     </td>
+                    <td><a type="button" class="btn btn-info" href="{{ route('task.details', $task->id) }}">Details</a></td>
                 </tr>
             @endforeach
         </table>

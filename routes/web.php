@@ -79,6 +79,7 @@ Route::group(['namespace' => $namespace . 'User'], function() {
 Route::group(['namespace' => $namespace . 'PurchaseOrderTask'], function() {
     Route::get('/tasks',  'IndexController')->name('task.index')->can('view', PurchaseOrderTask::class);
     Route::get('/task_list',  'ShowController')->name('task.list')->can('viewAny', PurchaseOrderTask::class);
+    Route::get('/tasks/details/{task}',  'DetailsController')->name('task.details')->can('viewAny', PurchaseOrderTask::class);
     Route::patch('/tasks/{task}',  'UpdateController')->name('task.update')->can('update', 'task');
 });
 

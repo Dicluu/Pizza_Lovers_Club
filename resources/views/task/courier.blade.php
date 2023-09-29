@@ -9,30 +9,23 @@
         <table class="table table-dark table-hover ">
             <tr>
                 <th scope="col">order</th>
-                <th scope="col">contains</th>
                 <th scope="col">address</th>
                 <th scope="col">phone number</th>
                 <th scope="col">email</th>
-                <th scope="col">comment</th>
+                <th scope="col"></th>
                 <th scope="col"></th>
             </tr>
             @foreach($tasks as $task)
                 <tr>
                     <td>{{ $task->order->id }}</td>
                     <td>
-                        @foreach($task->order->items as $item)
-                            {{ $item->item->title }} x{{ $item->count }}
-                        @endforeach
-                    </td>
-                    <td>
-                        {{ $task->order->details->city }}, .
-                        {{ $task->order->details->street}}, .
-                        {{ $task->order->details->porch_number}} подъезд, .
-                        {{ $task->order->details->floor}} этаж, .
+                        {{ $task->order->details->city }},
+                        {{ $task->order->details->street}},
+                        {{ $task->order->details->porch_number}} подъезд,
+                        {{ $task->order->details->floor}} этаж, 
                     </td>
                     <td>{{ $task->order->details->phone_number }}</td>
                     <td>{{ $task->order->details->email }}</td>
-                    <td><a href="{{ route('task.list') . '?comment=true&id=' . $task->order->id }}">comment</a></td>
                     <td>
                         <form action="{{ route('task.update', $task->id) }}" method="POST">
                             @csrf
@@ -53,6 +46,7 @@
 
                         </form>
                     </td>
+                    <td><a type="button" class="btn btn-info" href="{{ route('task.details', $task->id) }}">Details</a></td>
                 </tr>
             @endforeach
         </table>

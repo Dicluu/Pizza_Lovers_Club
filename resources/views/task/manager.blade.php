@@ -16,6 +16,7 @@
                 <th scope="col">ended at</th>
                 <th scope="col">task</th>
                 <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
             @foreach($tasks as $task)
                 <form action="{{ route('task.update', $task->id) }}" method="POST">
@@ -52,13 +53,14 @@
                         <td>
                             @if($task->order->status->id == 2 || $task->order->status->id == 4)
                                 <input type="hidden" name="status_id" value=" {{ $task->order->status->id + 1}}">
-                                <button type="submit" class="btn btn-primary">set</button>
+                                <button type="submit" class="btn btn-primary">appoint</button>
                             @else
                                 <input type="hidden" name="status_id" value=" {{ $task->order->status->id + 1}}">
                                 <input type="hidden" name="employee_id" value=" {{ $task->employee_id}}">
                                 <button type="submit" class="btn btn-success">push</button>
                             @endif
                         </td>
+                        <td><a type="button" class="btn btn-info" href="{{ route('task.details', $task->id) }}">Details</a></td>
                     </tr>
                 </form>
             @endforeach

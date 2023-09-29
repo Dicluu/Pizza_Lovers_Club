@@ -74,7 +74,7 @@
                     <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" id="customRadioInline2" name="customRadioInline1"
                                class="custom-control-input">
-                        <input type="hidden" name="payment_option_id" value="1">
+                        <input type="hidden" name="payment" value="Cash">
                         <label class="custom-control-label" for="customRadioInline2">Cash</label>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                     <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" id="customRadioInline2" name="customRadioInline1"
                                class="custom-control-input" checked>
-                        <input type="hidden" name="payment_option_id" value="2">
+                        <input type="hidden" name="payment" value="Card">
                         <label class="custom-control-label" for="customRadioInline2">Card</label>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                     <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" id="customRadioInline2" name="customRadioInline1"
                                class="custom-control-input">
-                        <input type="hidden" name="payment_option_id" value="3">
+                        <input type="hidden" name="payment" value="Online">
                         <label class="custom-control-label" for="customRadioInline2">Online</label>
                     </div>
                 </div>

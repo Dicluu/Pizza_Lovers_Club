@@ -30,7 +30,7 @@ class StoreRequest extends FormRequest
             'street' => 'string',
             'floor' => 'integer',
             'porch_number' => 'integer',
-            'payment_option_id' => 'integer',
+            'payment' => 'string',
         ];
     }
 }

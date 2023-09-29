@@ -79,25 +79,22 @@
             <div class="row" id="payment">
                 <div class="col-lg-1">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline2" name="customRadioInline1"
-                               class="custom-control-input">
-                        <input type="hidden" name="payment" value="Cash">
+                        <input type="radio" id="customRadioInline2" name="payment"
+                               class="custom-control-input" value="Cash">
                         <label class="custom-control-label" for="customRadioInline2">Cash</label>
                     </div>
                 </div>
                 <div class="col-lg-1">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline2" name="customRadioInline1"
-                               class="custom-control-input" checked>
-                        <input type="hidden" name="payment" value="Card">
+                        <input type="radio" id="customRadioInline2" name="payment"
+                               class="custom-control-input" value="Card" checked>
                         <label class="custom-control-label" for="customRadioInline2">Card</label>
                     </div>
                 </div>
                 <div class="col-lg-1">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline2" name="customRadioInline1"
-                               class="custom-control-input">
-                        <input type="hidden" name="payment" value="Online">
+                        <input type="radio" id="customRadioInline2" name="payment"
+                               class="custom-control-input" value="Online">
                         <label class="custom-control-label" for="customRadioInline2">Online</label>
                     </div>
                 </div>

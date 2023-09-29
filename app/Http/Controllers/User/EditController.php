@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -13,6 +14,7 @@ class EditController extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function __invoke(User $user) {
-        return view('user/edit', compact('user'));
+        $roles = Role::all();
+        return view('user/edit', compact('user', 'roles'));
     }
 }

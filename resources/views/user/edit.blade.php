@@ -28,6 +28,17 @@
                     @enderror
                 </div>
             </div>
+            <div class="row mb-3">
+                <label for="email" class="col-sm-2 col-form-label">New job post</label>
+                <div class="col-sm-10">
+                    <select class="form-control" name="role_id">
+                        @foreach($roles as $role)
+                        <option
+                            {{ $role->id === $user->role->id ? 'selected' : '' }} value="{{ $role->id }}">{{ $role->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
             <button type="submit" class="btn btn-primary">Update</button>
 
         </form>

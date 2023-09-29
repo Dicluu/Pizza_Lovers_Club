@@ -12,6 +12,7 @@ class IndexController extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function __invoke(Request $request) {
+        dd($request->validated());
         $data = $request->validated();
         return $this->service->index($data);
     }

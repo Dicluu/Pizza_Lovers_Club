@@ -24,6 +24,7 @@ class UpdateRequest extends FormRequest
         return [
             'name' => 'string',
             'email' => 'email',
+            'role_id' => 'integer'
         ];
     }
 }

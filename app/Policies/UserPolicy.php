@@ -22,7 +22,7 @@ class UserPolicy
      */
     public function view(User $user, User $model): bool
     {
-        $available = ['admin'];
+        $available = ['admin', 'manager'];
         return Finder::search($available, $user);
     }
 

@@ -6,6 +6,7 @@ use App\Http\Requests\PurchaseOrderDetails\StoreRequest;
 use App\Models\Item;
 use App\Models\PurchaseOrder;
 use App\Models\PurchaseOrderDetails;
+use App\Models\PurchaseOrderTask;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -30,6 +31,9 @@ class StoreController extends BaseController
         PurchaseOrderDetails::Create($data);
         $order->update([
            'status_id' => 2
+        ]);
+        PurchaseOrderTask::Create([
+            'purchase_order_id' => $order->id
         ]);
         return view('cart.payment_success');
     }

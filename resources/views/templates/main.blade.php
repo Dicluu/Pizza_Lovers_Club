@@ -2,6 +2,7 @@
 <html lang="en">
 <?php
 use App\Models\Item;
+use App\Models\PurchaseOrderTask;
 ?>
 <head>
     <meta charset="UTF-8">
@@ -41,6 +42,23 @@ use App\Models\Item;
                                 <li><a class="dropdown-item" href="{{ route('item.index') }}">items list</a></li>
                                 <li><a class="dropdown-item" href="{{ route('ingredient.index') }}">ingredients list</a>
                                 <li><a class="dropdown-item" href="{{ route('user.index') }}">users list</a>
+                                <li><a class="dropdown-item" href="{{ route('task.index') }}">task list</a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
+
+                    @if(Auth::user()->can('viewAny', PurchaseOrderTask::class))
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                Tasks
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('task.list') }}">task list</a>
                                 </li>
                                 <li>
                                     <hr class="dropdown-divider">

@@ -5,11 +5,14 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Cart;
 use App\Models\Category;
+use App\Models\Employee;
 use App\Models\Ingredient;
 use App\Models\Item;
 use App\Models\Role;
 use App\Models\Status;
 use App\Models\User;
+use App\Models\WorkPosition;
+use Database\Factories\WorkPositionFactory;
 use Illuminate\Database\Seeder;
 use App\Models\Pizza;
 
@@ -85,22 +88,29 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin'
         ]);
 
+        Role::factory()->create([
+            'name' => 'manager'
+        ]);
+
+        Role::factory()->create([
+            'name' => 'cooker'
+        ]);
+
+        Role::factory()->create([
+            'name' => 'courier'
+        ]);
+
         $user = User::factory()->create([
             'name' => 'admin',
             'email' => 'admin@admin.ru',
             'password' => 'admin',
+            'role_id' => 2
         ]);
 
 
         $cart = Cart::factory()->create([
             'user_id' => 1
         ]);
-
-        $user->roles()->attach(1);
-
-        foreach (Role::all() as $role) {
-            $user->roles()->attach($role);
-        }
 
         $user = User::factory()->create([
             'name' => 'test_user',
@@ -112,9 +122,72 @@ class DatabaseSeeder extends Seeder
             'user_id' => 2
         ]);
 
+        $user = User::factory()->create([
+            'name' => 'cooker_test',
+            'email' => 'cooker@mail.ru',
+            'password' => '123',
+            'role_id' => 3
+        ]);
+
+        $cart = Cart::factory()->create([
+            'user_id' => 3
+        ]);
+
+        $user = User::factory()->create([
+            'name' => 'courier_test',
+            'email' => 'courier@pizza.ru',
+            'password' => 'pizza',
+            'role_id' => 4
+        ]);
+
+        $cart = Cart::factory()->create([
+            'user_id' => 4
+        ]);
+
+        $user = User::factory()->create([
+            'name' => 'manager_test',
+            'email' => 'manager@pizza.ru',
+            'password' => 'manager',
+            'role_id' => 5
+        ]);
+
+        $cart = Cart::factory()->create([
+            'user_id' => 5
+        ]);
+
         Status::factory()->create([
             'title' => 'not paid'
         ]);
+
+        Status::factory()->create([
+            'title' => 'waiting for cooker'
+        ]);
+
+        Status::factory()->create([
+            'title' => 'cooking'
+        ]);
+
+        Status::factory()->create([
+            'title' => 'waiting for courier'
+        ]);
+
+        Status::factory()->create([
+            'title' => 'delivering'
+        ]);
+
+        Status::factory()->create([
+            'title' => 'waiting for acceptance/payment'
+        ]);
+
+        Status::factory()->create([
+            'title' => 'delivered'
+        ]);
+
+        Employee::factory()->create([
+           'user_id' => 1,
+           'role_id' => 2
+        ]);
+
 
     }
 }

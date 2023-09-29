@@ -31,7 +31,7 @@
             <button type="submit" class="btn btn-primary">Update</button>
 
         </form>
-        <a class="btn btn-primary mt-3" href="{{route('user.show', $user->id)}}">Back</a>
+            <a class="btn btn-primary mt-3" href="#" onclick="history.back();">Back</a>
         </div>
     </div>
 @endsection

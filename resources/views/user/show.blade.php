@@ -8,7 +8,7 @@
         <div>{{ $user->id}}. {{ $user->name }} </div>
         <div>{{ $user->email }}</div>
     </div>
-    <a class="btn btn-success" href="{{route('user.index')}}">Back</a>
+    <a class="btn btn-success" href="#" onclick="history.back();">Back</a>
     <a class="btn btn-success" href="{{route('user.edit', $user->id)}}">Edit</a>
 
 @endsection

@@ -18,9 +18,10 @@ class Finder
      */
     public static function search(array $available, User $user) {
         foreach ($available as $role) {
-            $value = $user->roles()->getResults()->pluck('name')->contains($role);
-            if ($value > 0) break;
+            if ($user->role->name == $role) {
+                return true;
+            }
         }
-        return $value;
+        return false;
     }
 }

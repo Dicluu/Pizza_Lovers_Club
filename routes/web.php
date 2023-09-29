@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Item;
+use App\Models\PurchaseOrderTask;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -73,6 +74,12 @@ Route::group(['namespace' => $namespace . 'User'], function() {
     Route::get('/users/edit/{user}',  'EditController')->name('user.edit')->can('update', 'user');
     Route::patch('/users/{user}',  'UpdateController')->name('user.update')->can('update', 'user');
     Route::delete('/users/{user}', 'DestroyController')->name('user.destroy')->can('delete', 'user');
+});
+
+Route::group(['namespace' => $namespace . 'PurchaseOrderTask'], function() {
+    Route::get('/tasks',  'IndexController')->name('task.index')->can('view', PurchaseOrderTask::class);
+    Route::get('/task_list',  'ShowController')->name('task.list')->can('viewAny', PurchaseOrderTask::class);
+    Route::patch('/tasks/{task}',  'UpdateController')->name('task.update')->can('update', 'task');
 });
 
 Route::get('/cart', $namespace . 'Cart\\' .'IndexController')->name('cart.index');

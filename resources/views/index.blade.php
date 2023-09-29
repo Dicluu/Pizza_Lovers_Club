@@ -5,10 +5,13 @@
 @section('content')
 
 
+
+
+
     <div class="container-sm">
         <div class="row">
             @foreach($items as $item)
-                <div class="col-lg-4 col-sm-6 mb-3 mt-3">
+                <div class="col-lg-3 col-sm-6 mb-3 mt-3">
                     <div class="card" style="width: 18rem;">
                         <img src=" {{ asset('img/items/' . $item->image) }}">
                         <div class="card-body">

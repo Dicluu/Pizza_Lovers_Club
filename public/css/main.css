@@ -15,3 +15,9 @@ body{
     height: 30px;
     overflow: hidden;
 }
+
+img {
+    max-width: 300px;
+    max-height: 250px;
+}
+

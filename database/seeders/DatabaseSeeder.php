@@ -34,6 +34,10 @@ class DatabaseSeeder extends Seeder
             'title' => 'pizza'
         ]);
 
+        Category::factory()->create([
+            'title' => 'drink'
+        ]);
+
         Ingredient::factory()->create([
             'title' => 'Tomatoes',
             'description' => 'Fresh tomatoes, the best i\'ve ever seen',
@@ -69,7 +73,7 @@ class DatabaseSeeder extends Seeder
         $pizza = Item::factory()->create([
             'title' => 'Cheddar',
             'description' => 'Delicious pizza from Italy, i guess',
-            'image' => 'chedder.jpg',
+            'image' => 'cheddar.jpg',
             'price' => '599.99',
             'category_id' => 1
         ]);
@@ -78,6 +82,77 @@ class DatabaseSeeder extends Seeder
         $pizza->ingredients()->attach(2);
         $pizza->ingredients()->attach(3);
         $pizza->ingredients()->attach(4);
+
+        $pizza = Item::factory()->create([
+            'title' => 'Chicken pizza',
+            'description' => 'Delicious pizza with chicken meat',
+            'image' => 'chicken_pizza.jpg',
+            'price' => '499.99',
+            'category_id' => 1
+        ]);
+
+        $pizza->ingredients()->attach(1);
+        $pizza->ingredients()->attach(2);
+        $pizza->ingredients()->attach(3);
+        $pizza->ingredients()->attach(4);
+
+        $pizza = Item::factory()->create([
+            'title' => 'Mushroom pizza',
+            'description' => 'Delicious pizza with mushrooms',
+            'image' => 'mushroom_pizza.jpg',
+            'price' => '459.99',
+            'category_id' => 1
+        ]);
+
+        $pizza->ingredients()->attach(1);
+        $pizza->ingredients()->attach(2);
+        $pizza->ingredients()->attach(3);
+        $pizza->ingredients()->attach(4);
+
+        $pizza = Item::factory()->create([
+            'title' => 'Pepperoni',
+            'description' => 'Pepperoni, too hot',
+            'image' => 'pepperoni_pizza.jpg',
+            'price' => '399.99',
+            'category_id' => 1
+        ]);
+
+        $pizza->ingredients()->attach(1);
+        $pizza->ingredients()->attach(2);
+        $pizza->ingredients()->attach(3);
+        $pizza->ingredients()->attach(4);
+
+        Item::factory()->create([
+            'title' => 'Coca cola',
+            'description' => 'Classic coca cola 2l',
+            'image' => 'cola.jpg',
+            'price' => '99.99',
+            'category_id' => 2
+        ]);
+
+        Item::factory()->create([
+            'title' => 'Fanta',
+            'description' => 'Classic Fanta 2l',
+            'image' => 'fanta.jpeg',
+            'price' => '99.99',
+            'category_id' => 2
+        ]);
+
+        Item::factory()->create([
+            'title' => 'Sprite',
+            'description' => 'Classic sprite 2l',
+            'image' => 'sprite.jpeg',
+            'price' => '99.99',
+            'category_id' => 2
+        ]);
+
+        Item::factory()->create([
+            'title' => 'Mountain Dew',
+            'description' => 'Classic mountain dew 2l',
+            'image' => 'mtn_dew.jpg',
+            'price' => '99.99',
+            'category_id' => 2
+        ]);
 
 
         Role::factory()->create([

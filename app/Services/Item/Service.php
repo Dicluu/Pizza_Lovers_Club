@@ -9,7 +9,7 @@ use App\Models\Item;
 class Service
 {
 
-    public function store($data, $query) {
+    public function index($query) {
         $categories = Category::all();
         $items = Item::all();
 

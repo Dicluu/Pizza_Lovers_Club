@@ -26,7 +26,7 @@ class UpdateRequest extends FormRequest
             'description' => 'string',
             'image' => 'string',
             'ingredients' => '',
-            'price' => 'integer',
+            'price' => 'decimal:2',
             'category_id' => 'integer'
         ];
     }

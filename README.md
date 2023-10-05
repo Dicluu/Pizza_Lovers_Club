@@ -34,6 +34,15 @@ For Windows:
 
 <img src="docs/img/main.png">
 
+## System technologies
+В проекте используются технологии:
+1) PHP 8.2
+2) Laravel 10
+3) Laravel Sail
+4) MySQL
+5) Docker
+6) Ubuntu 22.04 (Docker)
+
 На момент публикации (05.10.2023) схема базы данных представлена следующим образом:
 
 <img src="docs/img/database.png">

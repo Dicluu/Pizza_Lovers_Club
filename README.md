@@ -6,7 +6,7 @@
 1) For Linux: GIT, Docker, 2 GB free space
 2) For Windows: GIT, WSL2.0, Docker, 2 GB free space
 
-##Installation
+## Installation
 1) Открыть терминал, перейти в директорию для проекта.
 2) Выполнить команду git clone https://github.com/Dicluu/Pizza_Lovers_Club.git
 3) Перейти в директорию pizza-club/scripts

@@ -16,13 +16,7 @@
                 <tr>
                     <td>{{ $user->id }}</td>
                     <td><a href="{{ route('user.show', $user->id) }}">{{ $user->name }}</a></td>
-                    <td>
-                        <form action="{{ route('user.destroy', $user->id)  }}" method="POST">
-                            @csrf
-                            @method('delete')
-                        <button type="submit" class="btn btn-primary">delete</button>
-                        </form>
-                    </td>
+                    <td>{{ $user->email }}</td>
                 </tr>
             @endforeach
         </table>

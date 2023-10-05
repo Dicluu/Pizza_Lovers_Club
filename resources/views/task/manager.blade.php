@@ -14,7 +14,6 @@
                 <th scope="col">current status</th>
                 <th scope="col">started at</th>
                 <th scope="col">ended at</th>
-                <th scope="col">task</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
             </tr>
@@ -49,7 +48,6 @@
                         <td>{{ $task->order->status->title }} ( {{ $task->order->status->id }} )</td>
                         <td>{{ $task->started_at }}</td>
                         <td>{{ $task->ended_at }}</td>
-                        <td>{{ $task->title }}</td>
                         <td>
                             @if($task->order->status->id == 2 || $task->order->status->id == 4)
                                 <input type="hidden" name="status_id" value=" {{ $task->order->status->id + 1}}">
